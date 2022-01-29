@@ -61,11 +61,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateTipDescription(tipPercent: Int) {
         val tipDescription = when (tipPercent){
-            in 0..9 -> "Poor"
-            in 10..14 -> "Acceptable"
-            in 15..19 -> "Good"
-            in 20..24 -> "Great"
-            else -> "Amazing"
+            in 0..9 -> "\uD83D\uDE21 Poor \uD83D\uDE21"
+            in 10..14 -> "\uD83D\uDE44 Acceptable \uD83D\uDE44"
+            in 15..19 -> "\uD83D\uDE03 Good \uD83D\uDE03"
+            in 20..24 -> "\uD83D\uDE0A Great \uD83D\uDE0A"
+            else -> "\uD83D\uDE01 Amazing \uD83D\uDE01"
         }
         tvTipDescription.text = tipDescription
         //Update colour based on tipPercent

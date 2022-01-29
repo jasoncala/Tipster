@@ -6,16 +6,14 @@
 
 ## Functionality
 
-The following **required** functionality is completed:
+This app has the following functionalities:
 
 * [x] User can enter in a bill amount (total amount to tip on)
 * [x] User can enter a tip percentage (what % the user wants to tip).
 * [x] The tip and total amount are updated immediately when any of the inputs changes.
-* [x] The user sees a label or color update based on the tip amount.
+* [x] The user sees a label or color update with emojis based on the tip amount.
 
 The following **extensions** are planned to be implemented:
 
-* [x] Custom colors palette selected
 * [ ] Split the bill by N people
-* [ ] Use emojis for tip description
 * [ ] Show past tips in other screen
