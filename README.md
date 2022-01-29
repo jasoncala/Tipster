@@ -13,7 +13,9 @@ The following **required** functionality is completed:
 * [x] The tip and total amount are updated immediately when any of the inputs changes.
 * [x] The user sees a label or color update based on the tip amount.
 
-The following **extensions** are implemented:
+The following **extensions** are planned to be implemented:
 
 * [x] Custom colors palette selected
-* [ ] List anything else that you did to improve the app functionality or design!
+* [ ] Split the bill by N people
+* [ ] Use emojis for tip description
+* [ ] Show past tips in other screen
