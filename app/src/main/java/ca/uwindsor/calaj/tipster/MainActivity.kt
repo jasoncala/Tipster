@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 
 private const val TAG = "MainActivity"
 private const val INITIAL_TIP_PERCENT = 15
+private const val INITIAL_SPLIT = 1
 class MainActivity : AppCompatActivity() {
     private lateinit var  etBaseAmount: EditText
     private lateinit var  seekBarTip: SeekBar
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var  tvTipAmount: TextView
     private lateinit var  tvTotalAmount: TextView
     private lateinit var  tvTipDescription: TextView
+    private lateinit var  seekBarSplit: SeekBar
+    private lateinit var  tvSplitNum: TextView
+    private lateinit var  tvPerPerson: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +35,15 @@ class MainActivity : AppCompatActivity() {
         tvTipAmount = findViewById(R.id.tvTipAmount)
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
         tvTipDescription = findViewById(R.id.tvTipDescription)
+        seekBarSplit = findViewById(R.id.seekBarSplit)
+        tvSplitNum = findViewById(R.id.tvSplitNum)
+        tvPerPerson = findViewById(R.id.tvPerPerson)
 
         seekBarTip.progress = INITIAL_TIP_PERCENT
         tvTipPercentLabel.text = "$INITIAL_TIP_PERCENT%"
         updateTipDescription(INITIAL_TIP_PERCENT)
+        seekBarSplit.progress = INITIAL_SPLIT
+        tvSplitNum.text = "$INITIAL_SPLIT \uD83E\uDDCD"
         seekBarTip.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekbar: SeekBar?, progress: Int, fromUser: Boolean) {
                 Log.i(TAG, "onProgressChanged $progress")
@@ -55,6 +65,16 @@ class MainActivity : AppCompatActivity() {
                 Log.i(TAG, "afterTextChanged $s")
                 computeTipAndTotal()
             }
+        })
+        seekBarSplit.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekbar: SeekBar?, progress: Int, fromUser: Boolean) {
+                val numPpl = progress+1
+                tvSplitNum.text = "$numPpl \uD83E\uDDCD"
+                computeTipAndTotal()
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {}
+            override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
 
     }
@@ -84,14 +104,17 @@ class MainActivity : AppCompatActivity() {
             tvTotalAmount.text = ""
             return
         }
-        //1. Get value of the base and tip percent
+        //1. Get value of the base and tip percent as well as # of ppl
         val baseAmount = etBaseAmount.text.toString().toDouble()
         val tipPercent = seekBarTip.progress
+        val numPpls = seekBarSplit.progress + 1
         //2. compute the tip and total
         val tipAmount = baseAmount * tipPercent / 100
         val totalAmount = baseAmount + tipAmount
+        val totalSplit = totalAmount / numPpls
         //3. update UI
         tvTipAmount.text = "%.2f".format(tipAmount)
         tvTotalAmount.text = "%.2f".format(totalAmount)
+        tvPerPerson.text = "%.2f".format(totalSplit)
     }
 }

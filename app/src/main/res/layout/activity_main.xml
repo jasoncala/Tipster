@@ -36,7 +36,7 @@
         android:layout_marginTop="56dp"
         android:text="Tip"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
+        app:layout_constraintEnd_toEndOf="@+id/tvTipPercentLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvTipPercentLabel" />
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_marginTop="32dp"
         android:text="Total"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
+        app:layout_constraintEnd_toEndOf="@+id/tvTipLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
 
     <!-- These are the views on the right side -->
@@ -116,4 +116,57 @@
         app:layout_constraintStart_toStartOf="@+id/seekBarTip"
         app:layout_constraintTop_toBottomOf="@+id/seekBarTip"
         tools:text="Acceptable" />
+
+    <SeekBar
+        android:id="@+id/seekBarSplit"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:max="10"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSplit"
+        app:layout_constraintStart_toEndOf="@+id/tvSplit"
+        app:layout_constraintStart_toStartOf="@+id/tvTotalAmount"
+        app:layout_constraintTop_toTopOf="@+id/tvSplit" />
+
+    <TextView
+        android:id="@+id/tvSplit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Split"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/tvTotalLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvTotalLabel" />
+
+    <TextView
+        android:id="@+id/tvSplitNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBarSplit"
+        app:layout_constraintStart_toEndOf="@+id/seekBarSplit"
+        app:layout_constraintTop_toTopOf="@+id/seekBarSplit"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/tvPerPersonLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Per\nPerson"
+        android:textAlignment="textEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="@+id/tvSplit"
+        app:layout_constraintTop_toBottomOf="@+id/tvSplit" />
+
+    <TextView
+        android:id="@+id/tvPerPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPerPersonLabel"
+        app:layout_constraintStart_toStartOf="@+id/seekBarSplit"
+        app:layout_constraintTop_toTopOf="@+id/tvPerPersonLabel"
+        tools:text="10.23" />
 </androidx.constraintlayout.widget.ConstraintLayout>
