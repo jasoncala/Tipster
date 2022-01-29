@@ -1,4 +1,4 @@
-# Tip Calculator
+# Tipster (Tip Calculator Android App)
 
 ## *Jason Cala*
 
