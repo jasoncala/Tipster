@@ -12,8 +12,8 @@ This app has the following functionalities:
 * [x] User can enter a tip percentage (what % the user wants to tip).
 * [x] The tip and total amount are updated immediately when any of the inputs changes.
 * [x] The user sees a label or color update with emojis based on the tip amount.
+* [x] Split the bill by N people (1-11 people)
 
 The following **extensions** are planned to be implemented:
 
-* [ ] Split the bill by N people
 * [ ] Show past tips in other screen
