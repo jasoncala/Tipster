@@ -24,6 +24,10 @@ Here's a walkthrough of this Android application:
 
 <img src='https://j.gifs.com/RljLgR.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+## Notes 
+
+Learning focuses of this app was to obtain knowledge and practice the basics of Kotlin, Android Studio and how to create a basic Android application.
+
 ## License
 
     Copyright 2021 Jason Cala
