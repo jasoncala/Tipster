@@ -69,7 +69,14 @@ class MainActivity : AppCompatActivity() {
         seekBarSplit.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekbar: SeekBar?, progress: Int, fromUser: Boolean) {
                 val numPpl = progress+1
-                tvSplitNum.text = "$numPpl \uD83E\uDDCD"
+                var numPplText = when(numPpl){
+                    in 0..4 -> "$numPpl\uD83E\uDDCD"
+                    in 5..8 -> "$numPpl\uD83E\uDDCD\uD83E\uDDCD"
+                    in 9..11 -> "$numPpl\uD83E\uDDCD\uD83E\uDDCD\uD83E\uDDCD"
+                    else -> "$numPpl \uD83E\uDDCD"
+                }
+                //tvSplitNum.text = "$numPpl \uD83E\uDDCD"
+                tvSplitNum.text = numPplText
                 computeTipAndTotal()
             }
 
